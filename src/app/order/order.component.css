@@ -1,0 +1,23 @@
+.card {
+  margin-bottom: 10px; 
+  text-align: center;
+  border-radius: 5px;
+  background-color: burlywood;
+  padding: 15px; 
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  
+  }
+.column {
+  float: left;
+  width: 100%;
+  padding: 0 10px;
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+body{
+  color: black;
+}

@@ -1,0 +1,21 @@
+.card {
+    margin: 0 auto;
+    float:center; 
+    margin-bottom: 10px; 
+    border-radius: 25px;
+    background: #dee3e4;
+    padding: 15px;
+    min-height: 200px;
+    min-width: 200px;
+  }
+  body{
+    background-color: rgba(0, 19, 59, 0.774);
+  }
+
+  img{
+    border-radius: 20px;
+  }
+
+  button{
+    border-radius: 20px;
+  }

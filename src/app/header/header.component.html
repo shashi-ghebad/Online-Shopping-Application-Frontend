@@ -1,0 +1,72 @@
+<nav class="navbar navbar-expand-sm">
+  <a class="navbar-brand" href="#">
+    <img src="assets/Picture6.png" alt="logo" style="width:120px;">
+  </a>
+  <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+    class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-list"
+      viewBox="0 0 16 16">
+
+      <path fill-rule="evenodd"
+        d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+
+    </svg>
+
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+    <ul class="navbar-nav ml-auto">
+
+      <li class="nav-item">
+
+        <a class="nav-link" routerLink=""><i class="fa fa-home"></i></a>
+      </li>
+
+
+      <li class="nav-item" *ngIf="getUser()==null">
+        <a class="nav-link" routerLink="about"><b>About Us</b></a>
+      </li>
+
+      <li class="nav-item" *ngIf="getUser()==null">
+        <a class="nav-link" routerLink="contact"><b>Contact</b></a>
+      </li>
+
+      <li class="nav-item" *ngIf="getUser()==null">
+        <a class="nav-link" routerLink="register"><button type="button" class="btn btn-primary btn-sm">Sign
+            Up</button></a>
+      </li>
+      <li class="nav-item" *ngIf="getUser()==null">
+        <a class="nav-link" routerLink="authenticate"><button type="button" class="btn btn-success btn-sm">Sign
+            In</button></a>
+      </li>
+
+      <li class="nav-item" *ngIf="getRole()=='admin' && getUser()!=null">
+        <a class="nav-link" routerLink="add-product"><b>ADD PRODUCT</b></a>
+      </li>
+      <li class="nav-item" *ngIf="getRole()=='admin' && getUser()!=null">
+        <a class="nav-link" routerLink="list-of-products"><b>PRODUCT LIST</b></a>
+      </li>
+
+      <li class="nav-item" *ngIf="getRole()=='customer' && getUser()!=null">
+        <a class="nav-link" [routerLink]="['customer', getUserName()]"><b>UPDATE PROFILE</b></a>
+      </li>
+
+      <li class="nav-item" *ngIf="getRole()=='customer' && getUser()!=null">
+        <a class="nav-link" [routerLink]="['order', getUserName()]"><b>Order List</b></a>
+      </li>
+
+      <li class="nav-item" *ngIf="getRole()=='admin' && getUser()!=null">
+        <a class="nav-link" routerLink="customer-list"><b>Customer List</b></a>
+      </li>
+
+      <div class="ml-auto">
+        <li class="nav-item" *ngIf="getUser()!=null">
+          <a class="nav-link" routerLink="logout"><button type="button"
+              class="btn btn-danger btn-sm">LOGOUT</button></a>
+        </li>
+      </div>
+    </ul>
+  </div>
+</nav>

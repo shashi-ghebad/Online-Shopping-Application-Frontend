@@ -1,0 +1,137 @@
+<div class="container-fluid">
+    <div class="card mt-4 " style="width:70rem">
+        <div class="card-header bg-info text-white display-4 text-center">Add New Product</div>
+        <div>
+            <form #addprodForm="ngForm" (ngSubmit)="addProduct()">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="pname">Product Name:</label>
+                        <input type="text" class="form-control" placeholder="Enter product name" id="pname"
+                            name="productName" Productname required #productname="ngModel" minlength="3" maxlength="20"
+                            [(ngModel)]="addProductDetails.productName">
+                        <span class="help-bpx  "
+                            *ngIf="(productname.touched && !productname.valid)|| productname.errors?.minlength">
+                            Productname is
+                            required must be in range[3 20]</span>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="price">Product Cost:</label>
+                        <input type="text" class="form-control" placeholder="Enter product price" id="price"
+                            name="price" Productcost required #productcost="ngModel"
+                            onKeyPress="if(this.value.length==6) return false;" [(ngModel)]="addProductDetails.price">
+                        <span class="help-bpx  " *ngIf="productcost.touched && !productcost.valid"> productcost is
+                            required</span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="color">Product Color:</label>
+                        <input type="text" class="form-control" placeholder="Enter product color" id="color"
+                            name="color" Productcolor required #productncolor="ngModel" minlength="3" maxlength="20"
+                            [(ngModel)]="addProductDetails.color">
+                        <span class="help-bpx  "
+                            *ngIf="(productncolor.touched && !productncolor.valid)|| productncolor.errors?.minlength">
+                            Productcolor is
+                            required must be in range[3 20]</span>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="dimension">Product Dimension:</label>
+                        <input type="text" class="form-control" placeholder="Enter product dimension" id="dimension"
+                            name="dimension" Productdimension required #productdimension="ngModel" minlength="3"
+                            maxlength="20" [(ngModel)]="addProductDetails.dimension">
+                        <span class="help-bpx  "
+                            *ngIf="(productdimension.touched && !productdimension.valid)|| productdimension.errors?.minlength">
+                            Productdimension is
+                            required must be in range[3 20]</span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="specification">Product Specification:</label>
+                        <input type="text" class="form-control" placeholder="Enter product specification"
+                            id="specification" name="specification" Productspecification required
+                            #productspecification="ngModel" minlength="3" maxlength="20"
+                            [(ngModel)]="addProductDetails.specification">
+                        <span class="help-bpx  "
+                            *ngIf="(productspecification.touched && !productspecification.valid)|| productspecification.errors?.minlength">
+                            Productspecification is
+                            required must be in range[3 20]</span>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="manufacturer">Product Manufacturer:</label>
+                        <input type="text" class="form-control" placeholder="Enter product manufacturer"
+                            id="manufacturer" name="manufacturer" productmanfacture required
+                            #productmanfacture="ngModel" minlength="3" maxlength="20"
+                            [(ngModel)]="addProductDetails.manufacturer">
+                        <span class="help-bpx  "
+                            *ngIf="(productmanfacture .touched && !productmanfacture .valid)|| productmanfacture .errors?.minlength">
+                            Product manfacture is
+                            required must be in range[3 20]</span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="quantity">Product Quantity:</label>
+                        <input type="text" class="form-control" placeholder="Enter product quantity" id="quantity"
+                            name="quantity" Productquantity required #Productquantity="ngModel"
+                            onKeyPress="if(this.value.length==6) return false;"
+                            [(ngModel)]="addProductDetails.quantity">
+                        <span class="help-bpx  " *ngIf="Productquantity.touched && !Productquantity.valid">
+                            prodProductquantity is
+                            required</span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="productImageUrl">Product Image Url:</label>
+                        <input type="text" class="form-control" placeholder="Enter product Image Url"
+                            id="productImageUrl" name="productImageUrl" productimg required #productimg="ngModel"
+                            [(ngModel)]="addProductDetails.productImageUrl">
+                        <span class="help-bpx  "
+                            *ngIf="(productimg .touched && !productimg .valid)|| productimg .errors?.minlength"> Product
+                            Image is
+                            required</span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="categoryname">Category Name: </label>
+                        <select name="categoryName" id="categoryname"
+                            [(ngModel)]="addProductDetails.category.categoryName" required>
+                            <option value="Clothes">Clothes-41</option>
+                            <option value="Electronics">Electronics-42 </option>
+                            <option value="Furniture">Furniture-43</option>
+
+                            <!-- <option value="footwear">Footwear-44</option>
+                            <option value="appliances">Appliances-45</option> -->
+
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="catid"> Category Id: </label>
+
+                        <select name="catId" id="catid" [(ngModel)]="addProductDetails.category.catId" required>
+
+                            <option value="41"> 41 </option>
+                            <option value="42"> 42 </option>
+                            <option value="43"> 43 </option>
+                            <!-- <option value="footwear"> 44 </option>
+                                <option value="appliances"> 45 </option> -->
+
+                        </select>
+
+                    </div>
+
+
+
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-success" [disabled]="!addprodForm.valid">Add Product</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

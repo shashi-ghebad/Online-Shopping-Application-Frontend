@@ -1,0 +1,42 @@
+<body>
+    <div class="container">
+        <br>
+        <div class="text-white"><b> PRODUCT LIST</b></div>
+        <div class="col-md-12 text-right">
+            <br><button type="button" *ngIf="getRole()=='customer' && getUser()!=null" class="btn btn-info btn-lg"
+                (click)="viewCart()"><i class="fa fa-shopping-cart" aria-hidden="true"> </i></button>
+        </div>
+        <h3 class="bg-warning text-white">{{myError}}</h3>
+        <div class="row row-cols-1 row-cols-md-6">
+            <div class="col mb-6" *ngFor="let product of allProducts">
+                <div class="card " style="width: 30rem; max-height: 50rem;">
+
+                    <h4 class="text-center">
+                        <p> {{ product.productName }}</p>
+                    </h4>
+                    <img src="{{product.productImageUrl}}" width="100%" height="100%" /> <br>
+                    <p><b>₹:</b> {{ product.price }}</p>
+                    <p><b>Dimensions:</b> {{product.dimension}}</p>
+                    <p><b>Manufacturer:</b> {{product.manufacturer}}</p>
+                    <p><b>Product-specifications: </b>{{product.specification}}</p><br>
+
+                    <button type='button' *ngIf="getRole()=='admin' && getUser()!=null" class='btn btn-warning m-2 '
+                        (click)='editProduct(product.productId)'>
+                        Update
+                    </button>
+                    <button type='button' *ngIf="getRole()=='admin' && getUser()!=null" class='btn btn-danger m-2'
+                        (click)='deleteProduct(product.productId)'>
+                        Delete
+                    </button>
+
+                    <button type='button ' *ngIf="getRole()!='admin' && getUser()!=null" class='btn btn-success  m-2'
+                        (click)='addToCart(product)'>Add To Cart</button>
+
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</body>

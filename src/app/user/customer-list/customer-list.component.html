@@ -1,0 +1,20 @@
+<div class="container bg-info">
+    <h3 class="bg-warning text-white">
+        {{ myError }}
+    </h3>
+    <li class="list-group-item " *ngFor="let customer of allCustomer">
+        <ul class="list-group ">
+            <label class="text-white bg-info text-center"> Customer Details</label>
+            <li class="list-group-item">Customer FirstName: {{ customer.firstName }} </li>
+            <li class="list-group-item ">Customer LastName: {{ customer.lastName }} </li>
+            <li class="list-group-item ">Customer MobileNo: {{ customer.mobileNumber }} </li>
+            <li class="list-group-item ">Customer Email: {{ customer.email }} </li>
+            <li class="list-group-item ">Customer City: {{ customer.address.city }} </li>
+            <li class="list-group-item ">Customer State: {{ customer.address.state }} </li>
+            <li class="list-group-item ">Customer Country: {{ customer.address.country }} </li>
+            <li class="list-group-item ">Customer Pincode: {{ customer.address.pincode }} </li>
+            <li class="list-group-item">
+            </li>
+        </ul>
+    </li>
+</div>

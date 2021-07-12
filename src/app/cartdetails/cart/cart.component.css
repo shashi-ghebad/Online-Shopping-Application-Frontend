@@ -1,0 +1,11 @@
+.card {
+    margin: 0 auto; /* Added */
+    float:center; /* Added */
+    margin-bottom: 10px; /* Added */
+    border-radius: 20px;
+    background: #dee3e4;
+    padding: 10px;
+  }
+  body{
+    background-color: rgba(0, 19, 59, 0.774);
+  }

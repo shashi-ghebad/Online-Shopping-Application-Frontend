@@ -1,0 +1,22 @@
+h2 {
+    color: red;
+  }
+  input.ng-invalid.ng-touched{
+      border-color: red;
+  }
+  .form-group .form-control {
+    padding: 0;
+  }
+  span{
+  color: red;
+  }
+  input.ng-valid.ng-touched.ng-dirty{
+  border-color: green;
+  }
+  .form-group :after {
+  content:"*";color:red;
+  } 
+  body{
+  background-color: rgb(77, 6, 6);
+  }
+  

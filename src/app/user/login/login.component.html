@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="card mt-5 " style="width:20rem">
+    <div class="card-header bg-info text-white display-6 text-center">LOGIN</div>
+    <div class="card-body">
+      <div>
+        <form #loginForm="ngForm" (ngSubmit)="login()">
+
+          <div class="form-group col">
+
+            <label for="username">Username:</label>
+            <input type="text" class="form-control" placeholder="Enter user name" id="username" name="username" username
+              required #username="ngModel" minlength="5" maxlength="20" [(ngModel)]="addUserData.username">
+            <span class="help-bpx  " *ngIf="(username.touched && !username.valid)||username.errors?.minlength"> username
+              is required must be in range[5 20]</span>
+          </div>
+
+          <div class="form-group col">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" placeholder="Enter password" id="password" name="password"
+              name="password" password required #password="ngModel" minlength="5" maxlength="15"
+              [(ngModel)]="addUserData.password">
+            <span class="help-bpx  " *ngIf="(password.touched && !password.valid)||password.errors?.minlength"> password
+              is required must be in range[8 to 20]</span>
+          </div>
+
+
+          <div class="form-group col-md-6">
+            <label for="role">Choose Role:</label><br>
+            <select name="role" id="role" [(ngModel)]="addUserData.role" required>
+
+              <option value="customer">CUSTOMER</option>
+              <option value="admin">ADMIN</option>
+            </select><br><br>
+          </div>
+
+          <button type="submit" class="btn btn-success btn-block" [disabled]="!loginForm.valid">Login</button>
+
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+  <div class="card" style="width: 45rem; border-color: rgb(255, 255, 255);">
+    <img class="card-img-top" src="assets/testing.png" alt="Card image cap">
+    <div class="card-body">
+      <h1><b>
+          <p class="card-text">Order Your Happiness</p>
+        </b></h1>
+    </div>
+  </div>
+</div>

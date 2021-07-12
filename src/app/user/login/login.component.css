@@ -1,0 +1,39 @@
+h2 {
+  color: red;
+}
+input.ng-invalid.ng-touched{
+    border-color: red;
+}
+.form-group .form-control {
+  padding: 0;
+}
+span{
+color: red;
+}
+input.ng-valid.ng-touched.ng-dirty{
+border-color: green;
+}
+.form-group :after {
+content:"*";color:red;
+}
+
+.card {
+  margin: 0 auto;
+  float: right;
+  margin-bottom: 10px; 
+  border-radius: 10px;
+  background: #ffffff;
+  padding: 10px;
+}
+
+ .container {
+  color: #2E3747;
+  }
+  
+ 
+  #role{
+    width:230px; 
+    height: 35px;  
+   }
+
+   

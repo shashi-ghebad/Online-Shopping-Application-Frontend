@@ -1,0 +1,133 @@
+<body>
+    <div class="container-fluid">
+        <form #regForm="ngForm" (ngSubmit)="register()">
+            <div class="card-header bg-info text-white display-6 text-center">REGISTER NOW</div>
+            <div class="card-body">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+
+                        <label for="firstname">First Name:</label>
+                        <input type="text" class="form-control" placeholder="Enter First Name" id="firstname"
+                            name="firstname" firstname required #firstname="ngModel" minlength="3" maxlength="20"
+                            [(ngModel)]="addCustomerData.firstName">
+                        <span class="help-bpx  "
+                            *ngIf="(firstname.touched && !firstname.valid)|| firstname.errors?.minlength"> firstname is
+                            required must be in range[3 20]</span>
+
+                    </div>
+                    <div class="form-group col-md-6">
+
+                        <label for="lastname">Last Name:</label>
+                        <input type="text" class="form-control" placeholder="Enter Last Name" id="lastname"
+                            name="lastname" lastname required #lastname="ngModel" minlength="1" maxlength="20"
+                            [(ngModel)]="addCustomerData.lastName">
+                        <span class="help-bpx  "
+                            *ngIf="(lastname.touched && !lastname.valid) || lastname.errors?.minlength"> lastname is
+                            required</span>
+
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="mobilenumber">Mobile Number:</label>
+                        <input type="number" class="form-control" placeholder="Enter Mobile Number" id="mobilenumber"
+                            name="mobilenumber" mobilenumber required #mobilenumber="ngModel"
+                            onKeyPress="if(this.value.length==10) return false;"
+                            [(ngModel)]="addCustomerData.mobileNumber">
+                        <span class="help-bpx  " *ngIf="mobilenumber.touched && !mobilenumber.valid"> mobileNumber is
+                            required</span>
+
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="emailid">Email Id:</label>
+                        <input type="email" class="form-control" placeholder="Enter Email Id" id="emailid"
+                            name="emailid" email required #email="ngModel" [(ngModel)]="addCustomerData.email">
+                        <span class="help-bpx  " *ngIf="email.touched && !email.valid"> email is required</span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="streetno">Street Number:</label>
+                        <input type="text" class="form-control" placeholder="Enter Street Number" id="streetno" streetno
+                            required #streetno="ngModel" name="streetno" minlength="1" maxlength="20"
+                            [(ngModel)]="addCustomerData.address.streetNo">
+                        <span class="help-bpx  "
+                            *ngIf="(streetno.touched && !streetno.valid)||streetno.errors?.minlength"> streetNo is
+                            required</span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="bdname">Building Name:</label>
+                        <input type="text" class="form-control" placeholder="Enter Building Name" id="bdname"
+                            name="bdname" buildingName required #buildingName="ngModel" minlength="3" maxlength="50"
+                            [(ngModel)]="addCustomerData.address.buildingName">
+                        <span class="help-bpx  "
+                            *ngIf="(buildingName.touched && !buildingName.valid)||buildingName.errors?.minlength">
+                            buildingName is
+                            required must be in range[3 50]</span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="city">City:</label>
+                        <input type="text" class="form-control" placeholder="Enter City Name" id="city" name="city" city
+                            required #city="ngModel" minlength="3" maxlength="20"
+                            [(ngModel)]="addCustomerData.address.city">
+                        <span class="help-bpx  " *ngIf="(city.touched && !city.valid)||city.errors?.minlength"> city is
+                            required</span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="state">State:</label>
+                        <input type="text" class="form-control" placeholder="Enter State Name" id="state" name="state"
+                            state required #state="ngModel" minlength="3" maxlength="20"
+                            [(ngModel)]="addCustomerData.address.state">
+                        <span class="help-bpx  " *ngIf="(state.touched && !state.valid)|| state.errors?.minlength">
+                            state is required</span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="country">Country:</label>
+                        <input type="text" class="form-control" placeholder="Enter Country Name" id="country"
+                            name="country" country required #country="ngModel"
+                            [(ngModel)]="addCustomerData.address.country">
+                        <span class="help-bpx  " *ngIf="country.touched && !country.valid"> country is required</span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="pincode">Pincode:</label>
+                        <input type="number" class="form-control" placeholder="Enter Pincode Number" id="pincode"
+                            name="pincode" pincode required #pincode="ngModel" minlength="7" maxlength="8"
+                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                            [(ngModel)]="addCustomerData.address.pincode">
+                        <span class="help-bpx  " *ngIf="(pincode.touched && !pincode.valid)||pincode.errors?.minlength">
+                            pin is required must be in range[7 8]</span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="username">UserName:</label>
+                        <input type="text" class="form-control" placeholder="Enter UserName" id="username"
+                            name="username" username required #username="ngModel" minlength="5" maxlength="20"
+                            [(ngModel)]="addCustomerData.username.username">
+                        <span class="help-bpx  "
+                            *ngIf="(username.touched && !username.valid)||username.errors?.minlength"> username is
+                            required must be in range[5 20]</span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="password">Password:</label>
+                        <input type="password" class="form-control" placeholder="Enter Password" id="password"
+                            name="password" password required #password="ngModel" minlength="8" maxlength="15"
+                            [(ngModel)]="addCustomerData.username.password">
+                        <span class="help-bpx  "
+                            *ngIf="(password.touched && !password.valid)||password.errors?.minlength"> password is
+                            required must be in range[8 to 20]</span>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary " [disabled]="!regForm.valid">Register</button>
+                </div>
+
+            </div>
+        </form>
+
+    </div>
+</body>
